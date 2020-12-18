@@ -27,13 +27,6 @@ class Vertex{
       return false;
 
       }
-
-  /*
-  bool operator==(const Vertex &other) const{
-    if ((fabs(x-other.x) < 0.001) && (fabs(y-other.y) < 0.001) && (fabs(z-other.z) < 0.001))
-      return true;
-    return false;
-  }*/
 };
 
 class Cube{

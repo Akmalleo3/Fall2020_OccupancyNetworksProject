@@ -344,8 +344,9 @@ void readCoordinatesFromFile(std::vector<Cube> &cubes, std::string pointsFile){
 std::vector<Cube> MarchingCubes::generateCubes(std::string gridPtsFile){
   std::vector<Cube> cubes;
 
-  //std::string defaultgridpointsFile = "/home/andrea/Documents/GradSchool/OccupancyNetworks/nyu_occupancy_networks_project/MarchingCubes/src/32CubedGrid.txt";
-  std::string defaultgridpointsFile = "/home/andrea/Documents/GradSchool/OccupancyNetworks/nyu_occupancy_networks_project/evaluation/agrid_32_5.txt";
+  std::string defaultgridpointsFile = "../src/32CubedGrid.txt";
+  //used for the Computer vision project
+  //std::string defaultgridpointsFile = "/home/andrea/Documents/GradSchool/OccupancyNetworks/nyu_occupancy_networks_project/evaluation/agrid_32_5.txt";
   if(!gridPtsFile.empty())
     readCoordinatesFromFile(cubes, gridPtsFile);
   else
@@ -573,9 +574,6 @@ void MarchingCubes::march(std::vector<Cube> & cubes, std::string meshFileName){
         }
         else{
           localToGlobalIdx.insert(std::pair<int, int>(edgeIdx, it->globalIdx));
-          //std::cout << "Edge idx: " << edgeIdx << " maps to global vertx: " << it->x <<
-          //  "  " << it->y << "it->z" << std::endl;
-          //std::cout << "From v: " << v.x << " " << v.y << " " << v.z << std::endl;
         }
 
       }
@@ -613,9 +611,6 @@ void MarchingCubes::march(std::vector<Cube> & cubes, std::string meshFileName){
       }
       if ((f.v1 == f.v2) || (f.v1 == f.v3) || (f.v2 == f.v3)){
         std::cout << "Face with repeat vertices" << std::endl;
-        //std::cout << "Face: " << f.v1 << "  " << f.v2 << "  " << f.v3 << std::endl;
-        //std::cout << "vertices" << v1 << "  " << v2 << "  " << v3 << std::endl;
-
         assert(-1);
           }
       faces.insert(f);

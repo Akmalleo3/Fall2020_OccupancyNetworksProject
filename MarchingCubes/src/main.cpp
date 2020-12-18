@@ -3,10 +3,7 @@
 #include <math.h>
 #include <functional>
 
-
 using namespace std;
-
-
 
 /**
    Implicit Surface Equations sourced from wikipedia https://en.wikipedia.org/wiki/Implicit_surface
@@ -39,6 +36,15 @@ bool wineglass(float x,float y, float z){
 }
 
 
+// Running instructions
+// 1) Evaluate the hardcoded function the default grid
+//    ./MarchingCubes  
+// 2) Evaluate the hardcoded function on a specified grid
+//  ./Marchingcubes [gridPtsFile]
+// 3) Use provided points and probabilities that point lies on mesh  
+//  ./MarchingCubes [gridPtsFile] [predsFile]
+// 4) Same as 3 but outfile will be mesh_x.off (for scripts generating multiple meshes)
+//  ./MarchingCubes [gridPtsFile] [predsFile] [idForOutFile]
 int main(int argc, char *argv[]) {
 
   std::string gridPtsFile;
@@ -66,18 +72,16 @@ int main(int argc, char *argv[]) {
   }
   else{ //default hardcode
 
-    //std::vector<Cube> cubes = MarchingCubes::assembleCubes("/home/andrea/Documents/GradSchool/OccupancyNetworks/nyu_occupancy_networks_project/evaluation/bench_ag_32_3.txt",
-    //                                                       "/home/andrea/Documents/GradSchool/OccupancyNetworks/nyu_occupancy_networks_project/evaluation/couch_interp/couch_ag_preds_32_zero.txt");
+    std::vector<Cube> cubes = MarchingCubes::generateCubes();
+    using namespace std::placeholders;
+    MarchingCubes::computeOccupancies(cubes, std::bind(sphere, _1,_2,_3,1.0));
 
-    //std::vector<Cube> cubes = MarchingCubes::generateCubes();
-    //using namespace std::placeholders;
-    //MarchingCubes::computeOccupancies(cubes, std::bind(sphere, _1,_2,_3,1.0));
     //MarchingCubes::computeOccupancies(cubes, std::bind(sphereWithHole, _1,_2,_3,1.0,0.1));
     //MarchingCubes::computeOccupancies(cubes, std::bind(torus, _1,_2,_3,0.5,0.4));
     //MarchingCubes::computeOccupancies(cubes, std::bind(genus2, _1,_2,_3));
     //MarchingCubes::computeOccupancies(cubes, std::bind(wineglass, _1,_2,_3));
 
-    //MarchingCubes::march(cubes, "couch_zero.off");
+    MarchingCubes::march(cubes, "mesh.off");
   }
   return 1;
 }

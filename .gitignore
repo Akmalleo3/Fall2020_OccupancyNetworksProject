@@ -13,3 +13,4 @@ MarchingCubes/bld/*
 MarchingCubes/debug/*
 training/.ipynb_checkpoints
 evaluation/.ipynb_checkpoints
+*.pt
