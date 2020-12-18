@@ -1,3 +1,15 @@
 .idea/
 .DS_Store
 __pycache__/
+.ipynb_checkpoints/
+.vscode/
+MarchingCubes/eigen/
+*.txt
+Makefile
+*.cmake
+report/sampleTrainingBench/*.jpg
+MarchingCubes/latentInterp/*.off
+MarchingCubes/bld/*
+MarchingCubes/debug/*
+training/.ipynb_checkpoints
+evaluation/.ipynb_checkpoints
