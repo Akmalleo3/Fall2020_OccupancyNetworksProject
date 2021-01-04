@@ -14,3 +14,10 @@ MarchingCubes/debug/*
 training/.ipynb_checkpoints
 evaluation/.ipynb_checkpoints
 *.pt
+MarchingCubes/am_final
+*.pth
+*.aux
+*.fls
+*.log
+*.gz
+*.xz
