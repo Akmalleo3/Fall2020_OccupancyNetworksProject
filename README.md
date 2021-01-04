@@ -1,6 +1,13 @@
-# Occupancy Networks
-Authors: Andrea Malleo, Reggie Gomez
+# Reimplementation of Occupancy Networks:
+Occupancy Networks: Learning 3D Reconstruction in Function Space.
+Mescheder, Lars and Oechsle, Michael and Niemeyer, Michael and Nowozin, Sebastian and Geiger, Andreas.
+Proceedings IEEE Conf. on Computer Vision and Pattern Recognition (CVPR).2019
+https://github.com/autonomousvision/occupancy_networks
 
+
+Repo Authors: Andrea Malleo, Reggie Gomez
+
+[Project Paper](/report/report.pdf)
 # Results
 
 ## Single Image Mesh Reconstruction of Benches
@@ -22,24 +29,9 @@ Authors: Andrea Malleo, Reggie Gomez
 <img src="/report/latentInterpGifs/latentInterp_side_threshold3.gif" width="350" height="350"/>
 </p>
 
-## Environment Setup
-Make sure anaconda is installed.
-
-```bash
-conda env create -f requirements.yaml
-conda activate occupancy_networks
-```
-
 ## Dataset
 We use renderings and voxelizations from [Choy2016](http://3d-r2n2.stanford.edu/).
 
 ```bash
 bash scripts/download_choy.sh 
-```
-
-## Prince Notes
-
-Request a gpu node
-```bash
-srun --gres=gpu:1 --time=02:00:00 --mem=8GB --pty /bin/bash
 ```
