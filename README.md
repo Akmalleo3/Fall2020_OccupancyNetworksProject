@@ -32,6 +32,9 @@ Repo Authors: Andrea Malleo, Reggie Gomez
 ## Dataset
 We use renderings and voxelizations from [Choy2016](http://3d-r2n2.stanford.edu/).
 
+3D-R2N2: A Unified Approach for Single and Multi-view 3D Object Reconstruction.
+Choy, Christopher B and Xu, Danfei and Gwak, JunYoung and Chen, Kevin and Savarese, Silvio.
+Proceedings of the European Conference on Computer Vision (ECCV). 2016
 ```bash
 bash scripts/download_choy.sh 
 ```
